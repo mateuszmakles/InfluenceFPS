@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\InfluenceFPS.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{3B23D69B-9CCB-439F-A400-540EF409007F}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\InfluenceFPS.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\InfluenceFPSEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{D4EE6C57-9069-4F9F-A1C3-B25E47C30164}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\InfluenceFPS">
+      <UniqueIdentifier>{087FFECB-1971-4345-A113-7C10EFF0190F}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\InfluenceFPS\InfluenceFPS.Build.cs">
+      <Filter>Source\InfluenceFPS</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\InfluenceFPS\InfluenceFPS.cpp">
+      <Filter>Source\InfluenceFPS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\InfluenceFPS\InfluenceFPS.h">
+      <Filter>Source\InfluenceFPS</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\InfluenceFPS\InfluenceFPSCharacter.cpp">
+      <Filter>Source\InfluenceFPS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\InfluenceFPS\InfluenceFPSCharacter.h">
+      <Filter>Source\InfluenceFPS</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\InfluenceFPS\InfluenceFPSGameMode.cpp">
+      <Filter>Source\InfluenceFPS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\InfluenceFPS\InfluenceFPSGameMode.h">
+      <Filter>Source\InfluenceFPS</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\InfluenceFPS\InfluenceFPSHUD.cpp">
+      <Filter>Source\InfluenceFPS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\InfluenceFPS\InfluenceFPSHUD.h">
+      <Filter>Source\InfluenceFPS</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\InfluenceFPS\InfluenceFPSProjectile.cpp">
+      <Filter>Source\InfluenceFPS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\InfluenceFPS\InfluenceFPSProjectile.h">
+      <Filter>Source\InfluenceFPS</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\InfluenceFPS\Island.cpp">
+      <Filter>Source\InfluenceFPS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\InfluenceFPS\Island.h">
+      <Filter>Source\InfluenceFPS</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

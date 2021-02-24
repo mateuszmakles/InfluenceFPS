@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "InfluenceFPS",
+			"Path": "D:\\Devman\\InfluenceFPS\\Source\\InfluenceFPS.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "InfluenceFPSEditor",
+			"Path": "D:\\Devman\\InfluenceFPS\\Source\\InfluenceFPSEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"D:\\Devman\\InfluenceFPS\\Source\\InfluenceFPS\\InfluenceFPS.Build.cs",
+		"D:\\Devman\\InfluenceFPS\\Source\\InfluenceFPS.Target.cs",
+		"D:\\Devman\\InfluenceFPS\\Source\\InfluenceFPSEditor.Target.cs"
+	],
+	"EngineVersion": "4.26.1"
+}
