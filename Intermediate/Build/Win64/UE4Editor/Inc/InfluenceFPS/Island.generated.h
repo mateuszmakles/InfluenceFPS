@@ -13,13 +13,6 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define INFLUENCEFPS_Island_generated_h
 
-#define InfluenceFPS_Source_InfluenceFPS_Island_h_14_GENERATED_BODY \
-	friend struct Z_Construct_UScriptStruct_Faction_Statics; \
-	INFLUENCEFPS_API static class UScriptStruct* StaticStruct();
-
-
-template<> INFLUENCEFPS_API UScriptStruct* StaticStruct<struct Faction>();
-
 #define InfluenceFPS_Source_InfluenceFPS_Island_h_39_SPARSE_DATA
 #define InfluenceFPS_Source_InfluenceFPS_Island_h_39_RPC_WRAPPERS
 #define InfluenceFPS_Source_InfluenceFPS_Island_h_39_RPC_WRAPPERS_NO_PURE_DECLS
@@ -65,7 +58,10 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UIsland); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(UIsland)
 
 
-#define InfluenceFPS_Source_InfluenceFPS_Island_h_39_PRIVATE_PROPERTY_OFFSET
+#define InfluenceFPS_Source_InfluenceFPS_Island_h_39_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__Factions() { return STRUCT_OFFSET(UIsland, Factions); }
+
+
 #define InfluenceFPS_Source_InfluenceFPS_Island_h_36_PROLOG
 #define InfluenceFPS_Source_InfluenceFPS_Island_h_39_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \

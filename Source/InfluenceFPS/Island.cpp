@@ -3,7 +3,7 @@
 
 #include "Island.h"
 
-Faction::Faction(const Faction& faction)
+/*Faction::Faction(const UFaction& faction)
 	: FactionName{ faction.FactionName }, Influence{ faction.Influence }
 {
 
@@ -13,14 +13,14 @@ Faction::Faction(const Name& name, float share)
 	: FactionName{ name }, Influence{ share }
 {
 
-}
+}*/
 
 UIsland::UIsland()
 {
 	PrimaryComponentTick.bCanEverTick = false;
 }
 
-Faction* UIsland::GetFactionByName(const Faction::Name& name)
+UFaction* UIsland::GetFactionByName(const UFaction::Name& name)
 {
 	for (auto& element : Factions)
 	{
@@ -31,23 +31,23 @@ Faction* UIsland::GetFactionByName(const Faction::Name& name)
 	return nullptr;
 }
 
-Faction* UIsland::GetFactionByString(const FString& name)
+UFaction* UIsland::GetFactionByString(const FString& name)
 {
-	Faction::Name FactionName;
+	UFaction::Name FactionName;
 
 	if (name == "Army")
-		FactionName = Faction::Army;
+		FactionName = UFaction::Army;
 	else if (name == "Government")
-		FactionName = Faction::Government;
+		FactionName = UFaction::Government;
 	else if (name == "Traders")
-		FactionName = Faction::Traders;
+		FactionName = UFaction::Traders;
 	else if (name == "Pirates")
-		FactionName = Faction::Pirates;
+		FactionName = UFaction::Pirates;
 
 	return GetFactionByName(FactionName);
 }
 
-float UIsland::CorrectInfluence(Faction*& faction)
+float UIsland::CorrectInfluence(UFaction*& faction)
 {
 	float Difference = 0;
 
@@ -76,14 +76,14 @@ void UIsland::DivideInfluenceEqually()
 	}
 }
 
-void UIsland::SetFactionInfluence(const Faction& faction)
+void UIsland::SetFactionInfluence(const UFaction::Name& name, float share)
 {
-	auto OurFaction = GetFactionByName(faction.FactionName);
+	auto OurFaction = GetFactionByName(name);
 
 	if (OurFaction)
 	{
 		float Difference = OurFaction->Influence;
-		OurFaction->Influence = faction.Influence;
+		OurFaction->Influence = share;
 
 		CorrectInfluence(OurFaction);
 
@@ -95,12 +95,7 @@ void UIsland::SetFactionInfluence(const Faction& faction)
 	}
 }
 
-void UIsland::SetFactionInfluence(const Faction::Name& name, float share)
-{
-	SetFactionInfluence(Faction(name, share));
-}
-
-void UIsland::AdjustOthersInfluence(const Faction::Name& name, float difference)
+void UIsland::AdjustOthersInfluence(const UFaction::Name& name, float difference)
 {
 	float Difference = 0;
 
@@ -116,39 +111,39 @@ void UIsland::AdjustOthersInfluence(const Faction::Name& name, float difference)
 		}
 
 		difference = 0;
+
 	} while (Difference < 0);
 }
 
-void UIsland::AdjustOthersInfluenceEqually(const Faction& faction)
+void UIsland::AdjustOthersInfluenceEqually(const UFaction::Name& name, float share)
 {
 	for (auto& element : Factions)
 	{
-		if (element->FactionName != faction.FactionName)
+		if (element->FactionName != name)
 		{
-			element->Influence = (MaxInfluence - faction.Influence) / (Factions.Num() - 1);
+			element->Influence = (MaxInfluence - share) / (Factions.Num() - 1);
 		}
 	}
 }
 
-void UIsland::AdjustOthersInfluenceEqually(const Faction::Name& name, float share)
-{
-	AdjustOthersInfluenceEqually(Faction(name, share));
-}
-
-void UIsland::AddFaction(const Faction& faction)
+void UIsland::AddFaction(const UFaction::Name& name, float share)
 {
 	if (Factions.Num() == 0)
 	{
-		Factions.Add(new Faction(faction.FactionName, 100.f));
+		Factions.Add(NewObject<UFaction>(this));
+		Factions.Last()->FactionName = name;
+		Factions.Last()->Influence = MaxInfluence;
 	}
 	else
 	{
-		if (GetFactionByName(faction.FactionName))
+		if (GetFactionByName(name))
 		{
 			return;
 		}
 
-		Factions.Add(new Faction(faction));
+		Factions.Add(NewObject<UFaction>(this));
+		Factions.Last()->FactionName = name;
+		Factions.Last()->Influence = share;
 
 		CorrectInfluence(Factions.Last());
 
@@ -159,12 +154,7 @@ void UIsland::AddFaction(const Faction& faction)
 	}
 }
 
-void UIsland::AddFaction(const Faction::Name& name, float share)
-{
-	AddFaction(Faction(name, share));
-}
-
-void UIsland::RemoveFaction(const Faction::Name& name)
+void UIsland::RemoveFaction(const UFaction::Name& name)
 {
 	auto OurFaction = GetFactionByName(name);
 
@@ -172,7 +162,7 @@ void UIsland::RemoveFaction(const Faction::Name& name)
 	{
 		AdjustOthersInfluence(OurFaction->FactionName, OurFaction->Influence);
 
-		delete OurFaction;
+		//delete OurFaction;
 
 		Factions.Remove(OurFaction);
 		Factions.Shrink();

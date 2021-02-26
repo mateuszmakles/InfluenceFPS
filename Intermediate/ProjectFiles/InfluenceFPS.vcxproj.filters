@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\InfluenceFPS.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{3B23D69B-9CCB-439F-A400-540EF409007F}</UniqueIdentifier>
+      <UniqueIdentifier>{BFD4D49C-13D2-4246-966E-FF441208FC48}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\InfluenceFPS.Target.cs">
       <Filter>Source</Filter>
@@ -11,8 +11,10 @@
     <None Include="..\..\Source\InfluenceFPSEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\.gitattributes" />
+    <None Include="..\..\.gitignore" />
     <Filter Include="Config">
-      <UniqueIdentifier>{D4EE6C57-9069-4F9F-A1C3-B25E47C30164}</UniqueIdentifier>
+      <UniqueIdentifier>{923CEFEB-133A-4505-B1FB-B454173E50E4}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -30,8 +32,14 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\InfluenceFPS">
-      <UniqueIdentifier>{087FFECB-1971-4345-A113-7C10EFF0190F}</UniqueIdentifier>
+      <UniqueIdentifier>{99458B3D-387A-4863-B9C6-40D967AF5F6C}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\InfluenceFPS\Faction.cpp">
+      <Filter>Source\InfluenceFPS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\InfluenceFPS\Faction.h">
+      <Filter>Source\InfluenceFPS</Filter>
+    </ClInclude>
     <None Include="..\..\Source\InfluenceFPS\InfluenceFPS.Build.cs">
       <Filter>Source\InfluenceFPS</Filter>
     </None>

@@ -111,15 +111,10 @@ void AInfluenceFPSCharacter::BeginPlay()
 	}
 
 	// Testing
-	Islands[0]->AddFaction(Faction::Army);
-	Islands[0]->AddFaction(Faction::Government, 60.f);
-	Islands[0]->AddFaction(Faction::Traders, 20.f);
-	Islands[0]->AddFaction(Faction::Pirates, 30.f);
-
-	//GEngine->AddOnScreenDebugMessage(-1, 600.0f, FColor::Orange, FString::Printf(TEXT("Army %f"), Islands[0]->GetFactionByName(Faction::Army)->Influence));
-	//GEngine->AddOnScreenDebugMessage(-1, 600.0f, FColor::Yellow, FString::Printf(TEXT("Traders %f"), Islands[0]->GetFactionByName(Faction::Traders)->Influence));
-	//GEngine->AddOnScreenDebugMessage(-1, 600.0f, FColor::Cyan, FString::Printf(TEXT("Gov %f"), Islands[0]->GetFactionByName(Faction::Government)->Influence));
-	//GEngine->AddOnScreenDebugMessage(-1, 600.0f, FColor::Emerald, FString::Printf(TEXT("Pirates %f"), Islands[0]->GetFactionByName(Faction::Pirates)->Influence));
+	Islands[0]->AddFaction(UFaction::Army);
+	Islands[0]->AddFaction(UFaction::Government, 40.f);
+	Islands[0]->AddFaction(UFaction::Traders, 20.f);
+	Islands[0]->AddFaction(UFaction::Pirates, 30.f);
 
 }
 

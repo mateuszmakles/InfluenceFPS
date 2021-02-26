@@ -4,16 +4,15 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "Faction.h"
 #include "Island.generated.h"
 
-
-
-USTRUCT()
+/*USTRUCT()
 struct Faction
 {
 	GENERATED_BODY()
 
-		enum Name : char
+	enum Name : char
 	{
 		Army,
 		Government,
@@ -23,15 +22,16 @@ struct Faction
 		COUNT
 	};
 
-	Name FactionName;
-	float Influence;
+	Faction() = default;
 
 	Faction(const Faction& faction);
 
 	Faction(const Name& name, float share = 0.f);
 
-	Faction() = default;
-};
+	Name FactionName;
+	float Influence;
+
+};*/
 
 UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class INFLUENCEFPS_API UIsland : public UActorComponent
@@ -46,36 +46,28 @@ private:
 
 	const float MaxInfluence = 100.f;
 
-	TArray<Faction*> Factions;
+	UPROPERTY()
+	TArray<UFaction*> Factions;
 
 protected:
 
-	float CorrectInfluence(Faction*& faction);
+	float CorrectInfluence(UFaction*& faction);
 
-	void AdjustOthersInfluence(const Faction::Name& name, float difference);
+	void AdjustOthersInfluence(const UFaction::Name& name, float difference);
 
-	void AdjustOthersInfluenceEqually(const Faction& faction);
-	void AdjustOthersInfluenceEqually(const Faction::Name& name, float share);
+	void AdjustOthersInfluenceEqually(const UFaction::Name& name, float share);
 
 public:
 
-	Faction* GetFactionByName(const Faction::Name& name);
+	UFaction* GetFactionByName(const UFaction::Name& name);
 
-	Faction* GetFactionByString(const FString& name);
-
+	UFaction* GetFactionByString(const FString& name);
 
 	void DivideInfluenceEqually();
 
+	void SetFactionInfluence(const UFaction::Name& name, float share);
 
-	void SetFactionInfluence(const Faction& faction);
+	void AddFaction(const UFaction::Name& name, float share = 0.f);
 
-	void SetFactionInfluence(const Faction::Name& name, float share);
-
-
-	void AddFaction(const Faction& faction);
-
-	void AddFaction(const Faction::Name& name, float share);
-
-
-	void RemoveFaction(const Faction::Name& name);
+	void RemoveFaction(const UFaction::Name& name);
 };
