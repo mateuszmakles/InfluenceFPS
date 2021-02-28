@@ -166,6 +166,11 @@ void EmptyLinkFunctionForGeneratedCodeInfluenceFPSCharacter() {}
 		static void NewProp_bUsingMotionControllers_SetBit(void* Obj);
 		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bUsingMotionControllers;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bShowIslands_MetaData[];
+#endif
+		static void NewProp_bShowIslands_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bShowIslands;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Index_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FIntPropertyParams NewProp_Index;
@@ -338,6 +343,17 @@ void EmptyLinkFunctionForGeneratedCodeInfluenceFPSCharacter() {}
 	}
 	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AInfluenceFPSCharacter_Statics::NewProp_bUsingMotionControllers = { "bUsingMotionControllers", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool , RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(uint8), sizeof(AInfluenceFPSCharacter), &Z_Construct_UClass_AInfluenceFPSCharacter_Statics::NewProp_bUsingMotionControllers_SetBit, METADATA_PARAMS(Z_Construct_UClass_AInfluenceFPSCharacter_Statics::NewProp_bUsingMotionControllers_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AInfluenceFPSCharacter_Statics::NewProp_bUsingMotionControllers_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AInfluenceFPSCharacter_Statics::NewProp_bShowIslands_MetaData[] = {
+		{ "Category", "Influence" },
+		{ "ModuleRelativePath", "InfluenceFPSCharacter.h" },
+	};
+#endif
+	void Z_Construct_UClass_AInfluenceFPSCharacter_Statics::NewProp_bShowIslands_SetBit(void* Obj)
+	{
+		((AInfluenceFPSCharacter*)Obj)->bShowIslands = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AInfluenceFPSCharacter_Statics::NewProp_bShowIslands = { "bShowIslands", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AInfluenceFPSCharacter), &Z_Construct_UClass_AInfluenceFPSCharacter_Statics::NewProp_bShowIslands_SetBit, METADATA_PARAMS(Z_Construct_UClass_AInfluenceFPSCharacter_Statics::NewProp_bShowIslands_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AInfluenceFPSCharacter_Statics::NewProp_bShowIslands_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AInfluenceFPSCharacter_Statics::NewProp_Index_MetaData[] = {
 		{ "Category", "Influence" },
 		{ "ModuleRelativePath", "InfluenceFPSCharacter.h" },
@@ -360,6 +376,7 @@ void EmptyLinkFunctionForGeneratedCodeInfluenceFPSCharacter() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AInfluenceFPSCharacter_Statics::NewProp_FireSound,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AInfluenceFPSCharacter_Statics::NewProp_FireAnimation,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AInfluenceFPSCharacter_Statics::NewProp_bUsingMotionControllers,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AInfluenceFPSCharacter_Statics::NewProp_bShowIslands,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AInfluenceFPSCharacter_Statics::NewProp_Index,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AInfluenceFPSCharacter_Statics::StaticCppClassTypeInfo = {
@@ -389,7 +406,7 @@ void EmptyLinkFunctionForGeneratedCodeInfluenceFPSCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AInfluenceFPSCharacter, 2368886876);
+	IMPLEMENT_CLASS(AInfluenceFPSCharacter, 3860850703);
 	template<> INFLUENCEFPS_API UClass* StaticClass<AInfluenceFPSCharacter>()
 	{
 		return AInfluenceFPSCharacter::StaticClass();

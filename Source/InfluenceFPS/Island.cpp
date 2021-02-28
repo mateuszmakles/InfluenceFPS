@@ -62,8 +62,6 @@ float UIsland::CorrectInfluence(UFaction*& faction)
 		faction->Influence = 0;
 	}
 
-	Difference = FMath::RoundToFloat(Difference * 100.f) / 100.f;
-
 	return Difference;
 }
 
@@ -113,6 +111,9 @@ void UIsland::AdjustOthersInfluence(const UFaction::Name& name, float difference
 			if (element->FactionName != name)
 			{
 				element->Influence += difference / (Factions.Num() - 1) + Difference;
+
+				element->Influence = FMath::RoundToFloat(element->Influence * 100.f) / 100.f;
+
 				Difference = CorrectInfluence(element);
 			}
 		}

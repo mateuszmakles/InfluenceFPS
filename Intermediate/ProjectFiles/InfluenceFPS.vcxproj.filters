@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\InfluenceFPS.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{BFD4D49C-13D2-4246-966E-FF441208FC48}</UniqueIdentifier>
+      <UniqueIdentifier>{85B9B7BB-07BD-48F9-83EE-2A2945B39ECE}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\InfluenceFPS.Target.cs">
       <Filter>Source</Filter>
@@ -14,7 +14,7 @@
     <None Include="..\..\.gitattributes" />
     <None Include="..\..\.gitignore" />
     <Filter Include="Config">
-      <UniqueIdentifier>{923CEFEB-133A-4505-B1FB-B454173E50E4}</UniqueIdentifier>
+      <UniqueIdentifier>{0E126D45-0BE6-4052-839A-BBD07D863377}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -32,7 +32,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\InfluenceFPS">
-      <UniqueIdentifier>{99458B3D-387A-4863-B9C6-40D967AF5F6C}</UniqueIdentifier>
+      <UniqueIdentifier>{0A1954AD-CACB-4762-9F34-80D0AAE4102C}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\InfluenceFPS\Faction.cpp">
       <Filter>Source\InfluenceFPS</Filter>
@@ -77,6 +77,12 @@
       <Filter>Source\InfluenceFPS</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\InfluenceFPS\Island.h">
+      <Filter>Source\InfluenceFPS</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\InfluenceFPS\IslandActor.cpp">
+      <Filter>Source\InfluenceFPS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\InfluenceFPS\IslandActor.h">
       <Filter>Source\InfluenceFPS</Filter>
     </ClInclude>
   </ItemGroup>

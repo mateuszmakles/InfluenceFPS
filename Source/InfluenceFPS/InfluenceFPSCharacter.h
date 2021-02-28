@@ -92,6 +92,9 @@ public:
 	uint8 bUsingMotionControllers : 1;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Influence")
+	bool bShowIslands = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Influence")
 	int32 Index = 0;
 
 	UFUNCTION(BlueprintCallable, Category = "Influence")
@@ -102,6 +105,8 @@ protected:
 	void ChangeIsland(int32 Direction);
 
 	DECLARE_DELEGATE_OneParam(ChangeIslandDelegate, int32);
+
+	void ShowIslands();
 
 	void OnSomeAction();
 

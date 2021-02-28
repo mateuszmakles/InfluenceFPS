@@ -111,12 +111,12 @@ void AInfluenceFPSCharacter::BeginPlay()
 	}
 
 	// Testing
-	for (auto& Island : Islands)
+	for (int i = 0; i < IslandCount; ++i)
 	{
-		Island->AddFaction(UFaction::Army);
-		Island->AddFaction(UFaction::Government, 40.f);
-		Island->AddFaction(UFaction::Traders, 20.f);
-		Island->AddFaction(UFaction::Pirates, 30.f);
+		Islands[i]->AddFaction(UFaction::Army);
+		Islands[i]->AddFaction(UFaction::Government, (i + 1) * 40.f);
+		Islands[i]->AddFaction(UFaction::Traders, (i + 1) * 20.f);
+		Islands[i]->AddFaction(UFaction::Pirates, (i + 1) * 30.f);
 	}
 
 }
@@ -142,6 +142,8 @@ void AInfluenceFPSCharacter::SetupPlayerInputComponent(class UInputComponent* Pl
 	check(PlayerInputComponent);
 
 	// Bind custom events
+	PlayerInputComponent->BindAction("ShowIslands", IE_Pressed, this, &AInfluenceFPSCharacter::ShowIslands);
+
 	PlayerInputComponent->BindAction("SomeAction", IE_Pressed, this, &AInfluenceFPSCharacter::OnSomeAction);
 
 	PlayerInputComponent->BindAction<ChangeIslandDelegate>("ArrowLeft", IE_Pressed, this, &AInfluenceFPSCharacter::ChangeIsland, -1);
@@ -171,6 +173,11 @@ void AInfluenceFPSCharacter::SetupPlayerInputComponent(class UInputComponent* Pl
 	PlayerInputComponent->BindAxis("TurnRate", this, &AInfluenceFPSCharacter::TurnAtRate);
 	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
 	PlayerInputComponent->BindAxis("LookUpRate", this, &AInfluenceFPSCharacter::LookUpAtRate);
+}
+
+void AInfluenceFPSCharacter::ShowIslands()
+{
+	bShowIslands = bShowIslands ? false : true;
 }
 
 void AInfluenceFPSCharacter::ChangeIsland(int32 Direction)
