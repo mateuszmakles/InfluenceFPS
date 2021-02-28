@@ -138,6 +138,9 @@ void AInfluenceFPSCharacter::SetupPlayerInputComponent(class UInputComponent* Pl
 	// set up gameplay key bindings
 	check(PlayerInputComponent);
 
+	// Bind custom events
+	PlayerInputComponent->BindAction("SomeAction", IE_Pressed, this, &AInfluenceFPSCharacter::OnSomeAction);
+
 	// Bind jump events
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
@@ -161,6 +164,11 @@ void AInfluenceFPSCharacter::SetupPlayerInputComponent(class UInputComponent* Pl
 	PlayerInputComponent->BindAxis("TurnRate", this, &AInfluenceFPSCharacter::TurnAtRate);
 	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
 	PlayerInputComponent->BindAxis("LookUpRate", this, &AInfluenceFPSCharacter::LookUpAtRate);
+}
+
+void AInfluenceFPSCharacter::OnSomeAction()
+{
+	Islands[0]->SetFactionInfluence(UFaction::Traders, Islands[0]->GetFactionByName(UFaction::Traders)->Influence + 10);
 }
 
 void AInfluenceFPSCharacter::OnFire()

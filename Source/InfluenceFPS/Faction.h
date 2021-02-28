@@ -31,7 +31,7 @@ public:
 	Name FactionName;
 	float Influence;
 
-	void* operator new(uint64 size)
+	/*void* operator new(uint64 size)
 	{
 		void* p = ::new UFaction();
 
@@ -41,6 +41,6 @@ public:
 	void operator delete(void* p)
 	{
 		free(p);
-	}
+	}*/
 
 };

@@ -94,6 +94,8 @@ public:
 
 protected:
 	
+	void OnSomeAction();
+
 	/** Fires a projectile. */
 	void OnFire();
 

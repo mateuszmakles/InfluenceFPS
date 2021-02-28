@@ -62,6 +62,8 @@ float UIsland::CorrectInfluence(UFaction*& faction)
 		faction->Influence = 0;
 	}
 
+	Difference = FMath::RoundToFloat(Difference * 100.f) / 100.f;
+
 	return Difference;
 }
 
