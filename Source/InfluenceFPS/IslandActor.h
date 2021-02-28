@@ -15,4 +15,7 @@ public:
 	// Sets default values for this actor's properties
 	AIslandActor();
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Influence")
+	int32 Index = 0;
+
 };

@@ -21,7 +21,7 @@ void EmptyLinkFunctionForGeneratedCodeInfluenceFPS_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0x4BE46178,
+				0xA769BAC2,
 				0x9E8518FF,
 				METADATA_PARAMS(nullptr, 0)
 			};

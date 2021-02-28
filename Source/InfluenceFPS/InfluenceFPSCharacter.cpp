@@ -111,13 +111,21 @@ void AInfluenceFPSCharacter::BeginPlay()
 	}
 
 	// Testing
-	for (int i = 0; i < IslandCount; ++i)
-	{
-		Islands[i]->AddFaction(UFaction::Army);
-		Islands[i]->AddFaction(UFaction::Government, (i + 1) * 40.f);
-		Islands[i]->AddFaction(UFaction::Traders, (i + 1) * 20.f);
-		Islands[i]->AddFaction(UFaction::Pirates, (i + 1) * 30.f);
-	}
+	
+	Islands[0]->AddFaction(UFaction::Army);
+	Islands[0]->AddFaction(UFaction::Government, 40.f);
+	Islands[0]->AddFaction(UFaction::Traders, 20.f);
+	Islands[0]->AddFaction(UFaction::Pirates, 30.f);
+
+	Islands[1]->AddFaction(UFaction::Army);
+	Islands[1]->AddFaction(UFaction::Government, 40.f);
+	Islands[1]->AddFaction(UFaction::Traders, 40.f);
+	Islands[1]->AddFaction(UFaction::Pirates, 40.f);
+
+	Islands[2]->AddFaction(UFaction::Army);
+	Islands[2]->AddFaction(UFaction::Government, 40.f);
+	Islands[2]->AddFaction(UFaction::Traders, 60.f);
+	//Islands[2]->AddFaction(UFaction::Pirates, 30.f);
 
 }
 

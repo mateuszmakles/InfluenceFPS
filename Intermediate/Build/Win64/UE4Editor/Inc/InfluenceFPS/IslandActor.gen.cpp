@@ -31,6 +31,11 @@ void EmptyLinkFunctionForGeneratedCodeIslandActor() {}
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Index_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_Index;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
 	};
@@ -44,6 +49,16 @@ void EmptyLinkFunctionForGeneratedCodeIslandActor() {}
 		{ "ModuleRelativePath", "IslandActor.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AIslandActor_Statics::NewProp_Index_MetaData[] = {
+		{ "Category", "Influence" },
+		{ "ModuleRelativePath", "IslandActor.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_AIslandActor_Statics::NewProp_Index = { "Index", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AIslandActor, Index), METADATA_PARAMS(Z_Construct_UClass_AIslandActor_Statics::NewProp_Index_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AIslandActor_Statics::NewProp_Index_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AIslandActor_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AIslandActor_Statics::NewProp_Index,
+	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AIslandActor_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AIslandActor>::IsAbstract,
 	};
@@ -53,11 +68,11 @@ void EmptyLinkFunctionForGeneratedCodeIslandActor() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		nullptr,
-		nullptr,
+		Z_Construct_UClass_AIslandActor_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		0,
-		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_AIslandActor_Statics::PropPointers),
 		0,
 		0x009000A4u,
 		METADATA_PARAMS(Z_Construct_UClass_AIslandActor_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_AIslandActor_Statics::Class_MetaDataParams))
@@ -71,7 +86,7 @@ void EmptyLinkFunctionForGeneratedCodeIslandActor() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AIslandActor, 978124048);
+	IMPLEMENT_CLASS(AIslandActor, 2175331931);
 	template<> INFLUENCEFPS_API UClass* StaticClass<AIslandActor>()
 	{
 		return AIslandActor::StaticClass();
