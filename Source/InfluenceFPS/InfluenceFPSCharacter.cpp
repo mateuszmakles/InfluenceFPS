@@ -131,11 +131,11 @@ void AInfluenceFPSCharacter::BeginPlay()
 
 float AInfluenceFPSCharacter::GetInfluence(int islandIndex, const FString& factionName) const
 {
-	auto OurFaction = Islands[islandIndex]->GetFactionByString(factionName);
+	auto Faction = Islands[islandIndex]->GetFactionByString(factionName);
 
-	if (OurFaction)
+	if (Faction)
 	{
-		return OurFaction->Influence;
+		return Faction->Influence;
 	}
 
 	return -1.f;
@@ -151,12 +151,6 @@ void AInfluenceFPSCharacter::SetupPlayerInputComponent(class UInputComponent* Pl
 
 	// Bind custom events
 	PlayerInputComponent->BindAction("ShowIslands", IE_Pressed, this, &AInfluenceFPSCharacter::ShowIslands);
-
-	PlayerInputComponent->BindAction("SomeAction", IE_Pressed, this, &AInfluenceFPSCharacter::OnSomeAction);
-
-	PlayerInputComponent->BindAction<ChangeIslandDelegate>("ArrowLeft", IE_Pressed, this, &AInfluenceFPSCharacter::ChangeIsland, -1);
-
-	PlayerInputComponent->BindAction<ChangeIslandDelegate>("ArrowRight", IE_Pressed, this, &AInfluenceFPSCharacter::ChangeIsland, 1);
 
 	// Bind jump events
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
@@ -186,25 +180,6 @@ void AInfluenceFPSCharacter::SetupPlayerInputComponent(class UInputComponent* Pl
 void AInfluenceFPSCharacter::ShowIslands()
 {
 	bShowIslands = bShowIslands ? false : true;
-}
-
-void AInfluenceFPSCharacter::ChangeIsland(int32 Direction)
-{
-	Index += FMath::Sign(Direction);
-
-	if (Index > IslandCount - 1)
-	{
-		Index = 0;
-	}
-	else if (Index < 0)
-	{
-		Index = IslandCount - 1;
-	}
-}
-
-void AInfluenceFPSCharacter::OnSomeAction()
-{
-	Islands[Index]->AddFactionInfluence(UFaction::Traders, 10.f);
 }
 
 void AInfluenceFPSCharacter::OnFire()

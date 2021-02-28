@@ -101,14 +101,8 @@ public:
 	float GetInfluence(int islandIndex, const FString& factionName) const;
 
 protected:
-	
-	void ChangeIsland(int32 Direction);
-
-	DECLARE_DELEGATE_OneParam(ChangeIslandDelegate, int32);
 
 	void ShowIslands();
-
-	void OnSomeAction();
 
 	/** Fires a projectile. */
 	void OnFire();

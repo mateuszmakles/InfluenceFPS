@@ -3,9 +3,3 @@
 
 #include "Faction.h"
 
-
-/*UFaction::UFaction(const Name& name, float share)
-	: FactionName{ name }, Influence{ share }
-{
-	
-}*/

@@ -51,7 +51,7 @@ float UIsland::CorrectInfluence(UFaction*& faction)
 {
 	float Difference = 0;
 
-	faction->Influence = FMath::RoundToFloat(faction->Influence * 100.f) / 100.f;
+	faction->Influence = FMath::RoundHalfToEven(faction->Influence * 100.f) / 100.f;
 
 	if (faction->Influence > MaxInfluence)
 	{
@@ -80,19 +80,19 @@ void UIsland::DivideInfluenceEqually()
 
 void UIsland::SetFactionInfluence(const UFaction::Name& name, float share)
 {
-	auto OurFaction = GetFactionByName(name);
+	auto Faction = GetFactionByName(name);
 
-	if (OurFaction)
+	if (Faction)
 	{
-		float Difference = OurFaction->Influence;
-		OurFaction->Influence = share;
+		float Difference = Faction->Influence;
+		Faction->Influence = share;
 
-		CorrectInfluence(OurFaction);
+		CorrectInfluence(Faction);
 
 		if (Factions.Num() > 1)
 		{
-			Difference -= OurFaction->Influence;
-			AdjustOthersInfluence(OurFaction->FactionName, Difference);
+			Difference -= Faction->Influence;
+			AdjustOthersInfluence(Faction->FactionName, Difference);
 		}
 	}
 }
@@ -164,15 +164,13 @@ void UIsland::AddFaction(const UFaction::Name& name, float share)
 
 void UIsland::RemoveFaction(const UFaction::Name& name)
 {
-	auto OurFaction = GetFactionByName(name);
+	auto Faction = GetFactionByName(name);
 
-	if (OurFaction)
+	if (Faction)
 	{
-		AdjustOthersInfluence(OurFaction->FactionName, OurFaction->Influence);
+		AdjustOthersInfluence(Faction->FactionName, Faction->Influence);
 
-		//delete OurFaction;
-
-		Factions.Remove(OurFaction);
+		Factions.Remove(Faction);
 		Factions.Shrink();
 	}
 }
