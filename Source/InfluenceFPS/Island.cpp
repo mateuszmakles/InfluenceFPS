@@ -97,6 +97,11 @@ void UIsland::SetFactionInfluence(const UFaction::Name& name, float share)
 	}
 }
 
+void UIsland::AddFactionInfluence(const UFaction::Name& name, float share)
+{
+	SetFactionInfluence(name, GetFactionByName(name)->Influence + share);
+}
+
 void UIsland::AdjustOthersInfluence(const UFaction::Name& name, float difference)
 {
 	float Difference = 0;

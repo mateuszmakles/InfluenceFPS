@@ -84,7 +84,7 @@ AInfluenceFPSCharacter::AInfluenceFPSCharacter()
 	// Uncomment the following line to turn motion controllers on by default:
 	//bUsingMotionControllers = true;
 
-	for (int i = 0; i < 3; ++i)
+	for (int i = 0; i < IslandCount; ++i)
 	{
 		Islands.Add(CreateDefaultSubobject<UIsland>(FName("Island", i + 1)));
 	}
@@ -111,10 +111,13 @@ void AInfluenceFPSCharacter::BeginPlay()
 	}
 
 	// Testing
-	Islands[0]->AddFaction(UFaction::Army);
-	Islands[0]->AddFaction(UFaction::Government, 40.f);
-	Islands[0]->AddFaction(UFaction::Traders, 20.f);
-	Islands[0]->AddFaction(UFaction::Pirates, 30.f);
+	for (auto& Island : Islands)
+	{
+		Island->AddFaction(UFaction::Army);
+		Island->AddFaction(UFaction::Government, 40.f);
+		Island->AddFaction(UFaction::Traders, 20.f);
+		Island->AddFaction(UFaction::Pirates, 30.f);
+	}
 
 }
 
@@ -141,6 +144,10 @@ void AInfluenceFPSCharacter::SetupPlayerInputComponent(class UInputComponent* Pl
 	// Bind custom events
 	PlayerInputComponent->BindAction("SomeAction", IE_Pressed, this, &AInfluenceFPSCharacter::OnSomeAction);
 
+	PlayerInputComponent->BindAction<ChangeIslandDelegate>("ArrowLeft", IE_Pressed, this, &AInfluenceFPSCharacter::ChangeIsland, -1);
+
+	PlayerInputComponent->BindAction<ChangeIslandDelegate>("ArrowRight", IE_Pressed, this, &AInfluenceFPSCharacter::ChangeIsland, 1);
+
 	// Bind jump events
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
@@ -166,9 +173,23 @@ void AInfluenceFPSCharacter::SetupPlayerInputComponent(class UInputComponent* Pl
 	PlayerInputComponent->BindAxis("LookUpRate", this, &AInfluenceFPSCharacter::LookUpAtRate);
 }
 
+void AInfluenceFPSCharacter::ChangeIsland(int32 Direction)
+{
+	Index += FMath::Sign(Direction);
+
+	if (Index > IslandCount - 1)
+	{
+		Index = 0;
+	}
+	else if (Index < 0)
+	{
+		Index = IslandCount - 1;
+	}
+}
+
 void AInfluenceFPSCharacter::OnSomeAction()
 {
-	Islands[0]->SetFactionInfluence(UFaction::Traders, Islands[0]->GetFactionByName(UFaction::Traders)->Influence + 10);
+	Islands[Index]->AddFactionInfluence(UFaction::Traders, 10.f);
 }
 
 void AInfluenceFPSCharacter::OnFire()

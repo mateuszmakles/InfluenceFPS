@@ -52,6 +52,8 @@ class AInfluenceFPSCharacter : public ACharacter
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	UMotionControllerComponent* L_MotionController;
 
+	const int32 IslandCount = 3;
+
 	TArray<TWeakObjectPtr<UIsland>> Islands;
 
 public:
@@ -89,11 +91,18 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
 	uint8 bUsingMotionControllers : 1;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Influence")
+	int32 Index = 0;
+
 	UFUNCTION(BlueprintCallable, Category = "Influence")
 	float GetInfluence(int islandIndex, const FString& factionName) const;
 
 protected:
 	
+	void ChangeIsland(int32 Direction);
+
+	DECLARE_DELEGATE_OneParam(ChangeIslandDelegate, int32);
+
 	void OnSomeAction();
 
 	/** Fires a projectile. */

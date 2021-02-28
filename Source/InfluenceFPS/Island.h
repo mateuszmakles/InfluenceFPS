@@ -67,6 +67,8 @@ public:
 
 	void SetFactionInfluence(const UFaction::Name& name, float share);
 
+	void AddFactionInfluence(const UFaction::Name& name, float share);
+
 	void AddFaction(const UFaction::Name& name, float share = 0.f);
 
 	void RemoveFaction(const UFaction::Name& name);
