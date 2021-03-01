@@ -39,10 +39,10 @@ UFaction* UIsland::GetFactionByString(const FString& name)
 		FactionName = UFaction::Army;
 	else if (name == "Government")
 		FactionName = UFaction::Government;
-	else if (name == "Traders")
-		FactionName = UFaction::Traders;
-	else if (name == "Pirates")
-		FactionName = UFaction::Pirates;
+	else if (name == "Traders 1")
+		FactionName = UFaction::Traders1;
+	else if (name == "Traders 2")
+		FactionName = UFaction::Traders2;
 
 	return GetFactionByName(FactionName);
 }

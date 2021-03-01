@@ -18,8 +18,8 @@ public:
 	{
 		Army,
 		Government,
-		Traders,
-		Pirates,
+		Traders1,
+		Traders2,
 
 		COUNT
 	};

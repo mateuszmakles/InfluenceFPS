@@ -114,18 +114,18 @@ void AInfluenceFPSCharacter::BeginPlay()
 	
 	Islands[0]->AddFaction(UFaction::Army);
 	Islands[0]->AddFaction(UFaction::Government, 40.f);
-	Islands[0]->AddFaction(UFaction::Traders, 20.f);
-	Islands[0]->AddFaction(UFaction::Pirates, 30.f);
+	Islands[0]->AddFaction(UFaction::Traders1, 20.f);
+	Islands[0]->AddFaction(UFaction::Traders2, 30.f);
 
 	Islands[1]->AddFaction(UFaction::Army);
 	Islands[1]->AddFaction(UFaction::Government, 40.f);
-	Islands[1]->AddFaction(UFaction::Traders, 40.f);
-	Islands[1]->AddFaction(UFaction::Pirates, 40.f);
+	Islands[1]->AddFaction(UFaction::Traders1, 40.f);
+	Islands[1]->AddFaction(UFaction::Traders2, 40.f);
 
 	Islands[2]->AddFaction(UFaction::Army);
 	Islands[2]->AddFaction(UFaction::Government, 40.f);
-	Islands[2]->AddFaction(UFaction::Traders, 60.f);
-	//Islands[2]->AddFaction(UFaction::Pirates, 30.f);
+	Islands[2]->AddFaction(UFaction::Traders1, 60.f);
+	//Islands[2]->AddFaction(UFaction::Traders2, 30.f);
 
 }
 
